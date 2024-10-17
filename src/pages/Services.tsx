@@ -1,46 +1,56 @@
 import React from "react";
 import "../styles/Services.css";
 
-const Services: React.FC = () => {
-  const services = [
-    {
-      title: "Takeaway And Dine-In",
-      images: [
-        "/assets/service1-image1.png",
-        "/assets/service1-image2.png",
-        "/assets/service1-image3.png",
-        "/assets/service1-image4.png",
-      ],
-    },
-    {
-      title: "OFF-THE-SHELF PRODUCTS",
-      images: [
-        "/assets/service2-image1.png",
-        "/assets/service2-image2.png",
-        "/assets/service2-image3.png",
-        "/assets/service2-image4.png",
-      ],
-    },
-    {
-      title: "Catering & More",
-      images: [
-        "/assets/service3-image1.png",
-        "/assets/service3-image2.png",
-        "/assets/service3-image3.png",
-        "/assets/service3-image4.png",
-      ],
-    },
-    {
-      title: "Oriental & More",
-      images: [
-        "/assets/service4-image1.png",
-        "/assets/service4-image2.png",
-        "/assets/service4-image3.png",
-        "/assets/service4-image4.png",
-      ],
-    },
-  ];
+interface Service {
+  title: string;
+  description: string;
+  images: string[];
+}
 
+const services: Service[] = [
+  {
+    title: "Takeaway And Dine-In",
+    description:
+      "Appetizers Salads Hot sandwiches Pastas Main Course Hot and cold beverages",
+    images: [
+      "public/assets/image1.png",
+      "public/assets/image2.png",
+      "public/assets/image3.png",
+    ],
+  },
+  {
+    title: "OFF-THE-SHELF PRODUCTS",
+    description:
+      "Appetizers Salads Hot sandwiches Pastas Main Course Hot and cold beverages",
+    images: [
+      "public/assets/image1.png",
+      "public/assets/image2.png",
+      "public/assets/image3.png",
+    ],
+  },
+  {
+    title: "Catering & More",
+    description:
+      "Appetizers Salads Hot sandwiches Pastas Main Course Hot and cold beverages",
+    images: [
+      "public/assets/image1.png",
+      "public/assets/image2.png",
+      "public/assets/image3.png",
+    ],
+  },
+  {
+    title: "Oriental & More",
+    description:
+      "Appetizers Salads Hot sandwiches Pastas Main Course Hot and cold beverages",
+    images: [
+      "public/assets/image1.png",
+      "public/assets/image2.png",
+      "public/assets/image3.png",
+    ],
+  },
+];
+
+const Services: React.FC = () => {
   return (
     <div className="services-page">
       <h1 className="services-heading">Our Services</h1>
@@ -51,10 +61,7 @@ const Services: React.FC = () => {
         >
           <div className="service-content">
             <h2>{service.title}</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <p>{service.description}</p>
           </div>
           <div className="service-images">
             {service.images.map((src, imgIndex) => (
@@ -62,6 +69,7 @@ const Services: React.FC = () => {
                 key={imgIndex}
                 src={src}
                 alt={`${service.title} image ${imgIndex + 1}`}
+                className={`service-image service-image-${imgIndex + 1}`}
               />
             ))}
           </div>
