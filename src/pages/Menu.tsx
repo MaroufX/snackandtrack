@@ -87,9 +87,9 @@ const Menu: React.FC = () => {
       <h1 className="text-8xl text-[#39B54A] font-bold text-center mb-10">
         Our Menu
       </h1>
-      <div className="container mx-auto md:flex-row items-center">
+      <div className="container mx-auto flex flex-col items-center">
         {/* Category Buttons for Desktop */}
-        <div className="hidden md:flex justify-center mb-10">
+        <div className="hidden md:flex justify-center mb-20">
           {categories.map((category) => (
             <button
               key={category}
@@ -109,14 +109,14 @@ const Menu: React.FC = () => {
         </div>
 
         {/* Dropdown Menu for Mobile */}
-        <div className="md:hidden flex justify-center mb-28">
+        <div className="md:hidden flex justify-center mb-24">
           <select
             value={selectedCategory}
             onChange={(e) => {
               setSelectedCategory(e.target.value);
               setCurrentPage(1); // Reset to first page when category changes
             }}
-            className="bg-white border-[#39B54A] text-[#39B54A] border rounded-full px-4 py-2"
+            className="bg-white border-[#39B54A] text-[#39B54A] border rounded-full px-6 py-2"
           >
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -127,7 +127,7 @@ const Menu: React.FC = () => {
         </div>
 
         {/* Menu Items */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-24 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center px-4">
           {currentItems.map((item, index) => (
             <MenuItem
               key={index}

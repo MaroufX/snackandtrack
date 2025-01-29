@@ -123,7 +123,7 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>  
 
       <section className="features-section py-20 bg-white w-full min-h-screen flex flex-col justify-center items-center">
         <div className="container mx-auto text-center">
